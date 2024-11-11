@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<div class="container pt-3">
+    <div class="row">
+        <div class="col-12 d-flex">
+            <a href="/" style="text-decoration: none; color:black;" class="fw-semibold fs-5">Главная</a>
+            <p class="mx-2 fw-semibold fs-5"> - </p>
+            <p style="color: #001D78;" class="fw-semibold fs-5">Услуги</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <h1 class="fw-bold text-black">Услуги</h1>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row mt-3" style="height: fit-content;">
+        {% for service in page_obj %}
+        <div class="custom-col-5 mb-4">
+            <div class="card shadow-sm" style="height: 100%; border: 0;">
+                <img src="{{ service.images.first.image.url }}" alt="{{ service.name }}" class="card-img-top"> 
+                <div class="card-body pb-1 d-flex flex-column justify-content-center" style="height: fit-content;">
+                    <h5 class="card-title fs-6 fw-bold text-center" style="overflow: hidden;">{{ service.name }}</h5>
+                    <p class="card-text mt-2 text-center" style="font-size: small;">{{ service.description|truncatewords:10 }}</p>
+                    <div class="container">
+                        <div class="row justify-content-between">
+                            <div class="col-5 p-0 d-flex align-items-center justify-content-start">
+                                <p class="my-2" style="font-size: small;">от <span style="color: #001D78;" class="fw-semibold">{{ service.price }}</span>₽</p>
+                            </div>
+                            <div class="col-5 p-0 d-flex align-items-center justify-content-center">
+                                <a href="services/{{ service.slug }}" class="btn btn-primary px-2 py-0 me-2"><span class="fw-bold" style="font-size: small;">Записаться</span></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+<div class="container mt-5 pb-5">
+    <div class="row">
+        <div class="col-12">
+            <h1 class="fw-bold">КАК НАС НАЙТИ?</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <!-- MAP -->
+        </div>
+    </div>
+</div>
+{% endblock content %}

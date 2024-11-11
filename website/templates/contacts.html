@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<div class="container pt-3">
+    <div class="row">
+        <div class="col-12 d-flex">
+            <a href="/" style="text-decoration: none; color:black;" class="fw-semibold fs-5">Главная</a>
+            <p class="mx-2 fw-semibold fs-5"> - </p>
+            <p style="color: #001D78;" class="fw-semibold fs-5">Контакты</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <h1 class="fw-bold text-black">Контакты</h1>
+        </div>
+    </div>
+</div>
+<div class="container mt-3">
+    <div class="row justify-content-between">
+        <div class="col-12 col-lg-6">
+            <div class="row justify-content-start">
+                <div class="col-12 d-flex align-items-center mb-3">
+                    <img src="{% static 'media/icons/mark.svg' %}" alt="Метка" style="height: 60px; width: 60px;"> 
+                    <p class="fs-4 fw-bold text-black ms-3 mb-0">1-й Промышленный проезд, 1, деревня Кривцово, Тверская область</p>
+                </div>
+                <div class="col-auto d-flex align-items-center mb-3">
+                    <img src="{% static 'media/icons/phone.svg' %}" alt="Телефон" style="height: 60px; width: 60px;">
+                    <a href="tel:89201578188" class="main-anchor text-black ms-3 fs-4 fw-bold">+7 (920) 157-81-88</a>
+                </div>
+                <div class="col-auto d-flex align-items-center mb-3">
+                    <img src="{% static 'media/icons/phone.svg' %}" alt="Телефон" style="height: 60px; width: 60px;">
+                    <a href="tel:89056082749" class="main-anchor text-black ms-3 fs-4 fw-bold">+7 (905) 608-27-49</a>
+                </div>
+                <div class="col-12 d-flex align-items-center mb-3">
+                    <img src="{% static 'media/icons/clock.svg' %}" alt="Часы работы" style="height: 60px; width: 60px;">
+                    <p class="fs-4 fw-bold text-black ms-3 mb-0">9:00 - 19:00 Пн - Вс</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-lg-5 d-flex flex-column justify-content-center px-5 py-5" style="background: #E3E3E396;">
+            <p style="color: #001D78;" class="fs-3 fw-bold text-center mb-4">Записаться онлайн</p>
+            <form action="" method="post" id="form1" style="width: 100%;">
+                {% csrf_token %}
+                <div class="form-group">
+                  <input id="name1" aria-label="name" type="text" name="name" placeholder="Имя:" class="form-control" style="border-radius: 0px;">
+                  <div class="error text-start fs-6 fw-light"></div>
+                </div>
+                <div class="form-group">
+                  <input id="telephone1" aria-label="telephone" type="text" name="telephone" placeholder="Номер телефона:"
+                    class="form-control" style="border-radius: 0px;">
+                  <div class="error text-start fs-6 fw-light"></div>
+                </div>
+                <div class="form-group text-center">
+                  <input type="submit" value="Записаться" class="btn btn-primary py-3 mb-3 mb-md-0" style="background-color:#001D78; border: none; width: 100%;">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="container mt-5 pb-5">
+    <div class="row mt-3">
+        <div class="col-12">
+            <h1 class="fw-bold">КАК НАС НАЙТИ?</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <!-- MAP -->
+        </div>
+    </div>
+</div>
+{% endblock content %}

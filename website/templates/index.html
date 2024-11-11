@@ -1,0 +1,275 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<div class="container hero-cont pt-5" style="height: auto; width: 100%; max-width: 100%;">
+    <div class="row" style="height: 100%; width: 100%;">
+        <div class="col-12 col-lg-9 d-flex align-items-center justify-content-center">
+            <h1 class="lh-lg py-4 px-4" style="background-color: #a8a8a8e8;"><span class="display-3 fw-bold mb-2">КАПИТАЛЬНЫЙ РЕМОНТ</span><br> <span class="fw-semibold">И ТЕХНИЧЕСКОЕ ОБСЛУЖИВАНИЕ</span><br><span class="fw-medium">С ГАРАНТИЕЙ</span><br><span class="fw-light">КАЧЕСТВЕННО</span><br><button class="btn btn-lg fs-4 fw-semibold" style="background-color: #001D78; color:white; border-radius: 0px;" data-bs-toggle="modal" data-bs-target="#exampleModal">ЗАПИСАТЬСЯ</button><span class="mt-1 ms-3 fw-semibold">В ТВЕРИ</span></h1>
+        </div>
+        <div class="col-12 d-lg-none">
+            <img src="{% static 'media/hero.png' %}" alt="Hero Image">
+        </div>
+    </div>
+</div>
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-12">
+            <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                  <div class="carousel-item active" data-bs-interval="4000">
+                    <div class="imgs d-flex justify-content-between">
+                        <img src="{% static 'media/car1.png' %}" alt="..." class="me-4" style="width: 30%;">
+                        <img src="{% static 'media/car2.png' %}" alt="..." style="width: 30%;">
+                        <img src="{% static 'media/car3.png' %}" alt="..." class="ms-4" style="width: 30%;">
+                    </div>
+                  </div>
+                  <div class="carousel-item" data-bs-interval="4000">
+                    <div class="imgs d-flex justify-content-between">
+                        <img src="{% static 'media/car1.png' %}" alt="..." class="me-4" style="width: 30%;">
+                        <img src="{% static 'media/car2.png' %}" alt="..." style="width: 30%;">
+                        <img src="{% static 'media/car3.png' %}" alt="..." class="ms-4" style="width: 30%;">
+                    </div>
+                  </div>
+                  <div class="carousel-item" data-bs-interval="4000">
+                    <div class="imgs d-flex justify-content-between">
+                        <img src="{% static 'media/car1.png' %}" alt="..." class="me-4" style="width: 30%;">
+                        <img src="{% static 'media/car2.png' %}" alt="..." style="width: 30%;">
+                        <img src="{% static 'media/car3.png' %}" alt="..." class="ms-4" style="width: 30%;">
+                    </div>
+                  </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container mt-5 pt-5 pb-5">
+    <div class="row">
+        <div class="col-12">
+            <p class="fs-2 fw-bold">ЧТО МЫ УМЕЕМ?</p>
+        </div>
+    </div>
+    <div class="row justify-content-center mt-3">
+        <div class="col-1 d-lg-flex align-items-center d-none justify-content-center">
+            <button type="button" data-bs-target="#carouselExample" data-bs-slide="prev" class="close-btn">
+                <i class="fa-solid fa-angle-left fa-lg"></i>
+            </button>
+        </div>
+        <div class="col-1 d-flex align-items-center d-lg-none justify-content-center">
+            <button type="button" data-bs-target="#carouselExample1" data-bs-slide="prev" class="close-btn">
+                <i class="fa-solid fa-angle-left fa-lg"></i>
+            </button>
+        </div>
+        <div class="col-10 d-none d-lg-block">
+            <div id="carouselExample" class="carousel slide">
+                <div class="carousel-inner">
+                    {% for service in services|slice:"0:4" %}
+                        {% if forloop.counter0|divisibleby:4 %}
+                            <div class="carousel-item {% if forloop.first %}active{% endif %}">
+                                <div class="row">
+                        {% endif %}
+                        
+                        <div class="col-lg-6 col-xl-3">
+                            <div class="card" style="border-radius: 0px;">
+                                <img src="{{ service.images.first.image.url }}" class="card-img-top" alt="{{ service.name }}">
+                                <div class="card-body">
+                                    <h5 class="card-title fw-bold">{{ service.name }}</h5>
+                                    <p class="card-text">{{ service.description }}</p>
+                                    <p class="card-price" style='height: fit-content;'>от <span class="fw-semibold">{{ service.price }}</span> Р</p>
+                                    <a href="#" class="btn btn-primary">Записаться</a>
+                                </div>
+                            </div>
+                        </div>
+        
+                        {% if forloop.counter|divisibleby:4 or forloop.last %}
+                                </div>
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        <div class="col-10 d-lg-none">
+            <div id="carouselExample1" class="carousel slide">
+                <div class="carousel-inner">
+                    {% for service in services %}
+                    <div class="carousel-item {% if forloop.first %}active{% endif %} d-lg-none">
+                        <div class="card">
+                            <img src="{{ service.images.first.image.url }}" class="card-img-top" alt="{{ service.name }}">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ service.name }}</h5>
+                                <p class="card-text">{{ service.description }}</p>
+                                <p class="card-price">от {{ service.price }} Р</p>
+                                <a href="#" class="btn btn-primary">Записаться</a>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        <div class="col-1 d-lg-flex align-items-center d-none justify-content-center">
+            <button type="button" data-bs-target="#carouselExample" data-bs-slide="next" class="close-btn">
+                <i class="fa-solid fa-angle-right fa-lg"></i>
+            </button>
+        </div>
+        <div class="col-1 d-flex align-items-center d-lg-none justify-content-center">
+            <button type="button" data-bs-target="#carouselExample1" data-bs-slide="next" class="close-btn">
+                <i class="fa-solid fa-angle-right fa-lg"></i>
+            </button>
+        </div>
+    </div>
+</div>
+<div class="container mt-5 pb-5">
+    <div class="row">
+        <div class="col-12 col-lg-5">
+            <img src="{% static 'media/whywe.png' %}" alt="whywe" style="object-fit: cover;">
+        </div>
+        <div class="col-12 col-lg-7 ps-3 mt-3 mt-lg-0">
+            <h1 class="fw-bold">Д-ТРАНС Сервис</h1>
+            <p class="fs-5 fw-semibold">Лучший грузовой автосервис в Твери</p>
+            <p>Мы будем искренне рады, если в нашем лице Вы найдёте достойного и надёжного партнёра. Мы обеспечиваем клиента высоким качеством предоставляемого сервиса, а это, в свою очередь, не может остаться незамеченным. <br><br>Наша компания создаёт для клиента все возможные преимущества и обратившись к нам и почувствовав на себе весь комфорт широкого спектра предоставляемых услуг, Вы уже не захотите покидать нас. Мы предлагаем, а выбор остаётся за вами.</p>
+            <a href="{% url "about" %}" class="btn btn-primary px-5"> Подробнее</a>
+        </div>
+    </div>
+</div>
+<div class="container mt-5 pb-5">
+    <div class="row justify-content-center justify-content-lg-evenly">
+        <div class="col-12 col-lg-3 mb-3 d-flex align-items-center flex-column">
+            <a href="#" class="btn btn-primary fs-5 fw-semibold mb-2 py-3" style="width: 100%;">Техническое обслуживание</a>
+            <a href="#" class="btn btn-primary d-none d-lg-block mb-2" style="width: 100%;">Замена масла и масляных фильтров</a>
+            <a href="#" class="btn btn-primary d-none d-lg-block mb-2" style="width: 100%;">Замена масла и масляных фильтров</a>
+            <a href="#" class="btn btn-primary d-none d-lg-block" style="width: 100%;">Замена масла и масляных фильтров</a>
+        </div>
+        <div class="col-12 col-lg-3 mb-3 d-flex justify-content-center flex-column">
+            <a href="#" class="btn btn-primary fs-5 fw-semibold mb-2 py-3 d-flex align-items-center justify-content-center" style="width: 100%; height: 100%;">Капитальный ремонт</a>
+            <a href="#" class="btn btn-primary d-none d-lg-block mb-2" style="width: 100%;">Замена масла и масляных фильтров</a>
+            <a href="#" class="btn btn-primary d-none d-lg-block mb-2" style="width: 100%;">Замена масла и масляных фильтров</a>
+            <a href="#" class="btn btn-primary d-none d-lg-block" style="width: 100%;">Замена масла и масляных фильтров</a>
+        </div>
+        <div class="col-12 col-lg-3 mb-3 d-flex justify-content-center flex-column">
+            <a href="#" class="btn btn-primary fs-5 fw-semibold mb-2 py-3" style="width: 100%;">Техническое обслуживание</a>
+            <a href="#" class="btn btn-primary d-none d-lg-block mb-2" style="width: 100%;">Замена масла и масляных фильтров</a>
+            <a href="#" class="btn btn-primary d-none d-lg-block mb-2" style="width: 100%;">Замена масла и масляных фильтров</a>
+            <a href="#" class="btn btn-primary d-none d-lg-block" style="width: 100%;">Замена масла и масляных фильтров</a>
+        </div>
+    </div>
+</div>
+<div class="container mt-5 pb-5">
+    <div class="row">
+        <div class="col-12">
+            <h1 class="fw-bold">ОТЗЫВЫ О НАШЕЙ РАБОТЕ</h1>
+        </div>
+    </div>
+    <div class="row justify-content-lg-evenly justify-content-center mt-3">
+        <div class="col-12 col-lg-4 pe-3">
+            <div class="card-review review py-3 px-5" style="height: 100%; width: 100%;">
+                <div class="top-card d-flex justify-content-between align-items-center">
+                    <img src="{% static 'media/review-cubed.png' %}" alt="review-cubed" style="width: 20%;">
+                    <p class="mb-0">Иван Дремин</p>
+                </div>
+                <div class="bottom-card pt-5">
+                    <p>Отличный автосервис выполнили все качественно и в срок цена нас порадовала</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-4 d-none d-lg-block pe-3">
+            <div class="card-review review py-3 px-5" style="height: 100%; width: 100%;">
+                <div class="top-card d-flex justify-content-between align-items-center">
+                    <img src="{% static 'media/review-cubed.png' %}" alt="review-cubed" style="width: 20%;">
+                    <p class="mb-0">Иван Дремин</p>
+                </div>
+                <div class="bottom-card pt-5">
+                    <p>Отличный автосервис выполнили все качественно и в срок цена нас порадовала</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-4 d-none d-lg-block">
+            <div class="card-review review py-3 px-5" style="height: 100%; width: 100%;">
+                <div class="top-card d-flex justify-content-between align-items-center">
+                    <img src="{% static 'media/review-cubed.png' %}" alt="review-cubed" style="width: 20%;">
+                    <p class="mb-0">Иван Дремин</p>
+                </div>
+                <div class="bottom-card pt-5">
+                    <p>Отличный автосервис выполнили все качественно и в срок цена нас порадовала</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-12">
+            <h1 class="fw-bold">ПОПУЛЯРНЫЕ НОВОСТИ</h1>
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col-12 col-lg-6 mb-3 mb-lg-0">
+            <div class="row">
+                <div class="col-12 mb-3">
+                    <a href="blog/{{ blogs.1.slug }}" style="text-decoration: none;">
+                        <div class="row">
+                            <div class="col-12 col-lg-5 p-0">
+                                <img src="{{ blogs.1.images.first.image.url }}" alt="{{ blogs.1.title }}" style="object-fit: cover;">
+                            </div>
+                            <div class="col-12 col-lg-7 py-2" style="background-color: #001D78; box-shadow: 5px 4px 4px 0px #00000040; text-decoration: none; color:white;">
+                                <p class="mb-1" style="font-size: small;">{{ blogs.1.pub_date }}</p>
+                                <p class="fs-6 fw-bold">{{ blogs.1.title }}</p>
+                                <p style="font-size: small;">{{ blogs.1.content }}</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-12 mb-3">
+                    <a href="blog/{{ blogs.1.slug }}" style="text-decoration: none;">
+                        <div class="row">
+                            <div class="col-12 col-lg-5 p-0">
+                                <img src="{{ blogs.1.images.first.image.url }}" alt="{{ blogs.1.title }}" style="object-fit: cover;">
+                            </div>
+                            <div class="col-12 col-lg-7 py-2" style="background-color: #001D78; box-shadow: 5px 4px 4px 0px #00000040; text-decoration: none; color:white;">
+                                <p class="mb-1" style="font-size: small;">{{ blogs.1.pub_date }}</p>
+                                <p class="fs-6 fw-bold">{{ blogs.1.title }}</p>
+                                <p style="font-size: small;">{{ blogs.1.content }}</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-12">
+                    <a href="blog/{{ blogs.1.slug }}" style="text-decoration: none;">
+                        <div class="row">
+                            <div class="col-12 col-lg-5 p-0">
+                                <img src="{{ blogs.1.images.first.image.url }}" alt="{{ blogs.1.title }}" style="object-fit: cover;">
+                            </div>
+                            <div class="col-12 col-lg-7 py-2" style="background-color: #001D78; box-shadow: 5px 4px 4px 0px #00000040; text-decoration: none; color:white;">
+                                <p class="mb-1" style="font-size: small;">{{ blogs.1.pub_date }}</p>
+                                <p class="fs-6 fw-bold">{{ blogs.1.title }}</p>
+                                <p style="font-size: small;">{{ blogs.1.content }}</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="col-6 pe-0 ps-0 ps-lg-3 d-none d-lg-block">
+            <a href="blog/{{ blogs.0.slug }}" class="blog-big-part">
+                <img src="{{ blogs.0.images.first.image.url}}" alt="{{ blogs.0.title }}" style="object-fit: cover;">
+                <div class="content-blog">
+                    <p class="text-white fs-5 mb-0">{{ blogs.0.pub_date }}</p>
+                    <p class="text-white fs-3 fw-semibold">{{ blogs.0.title }}</p>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>
+<div class="container mt-5 pb-5">
+    <div class="row mt-3">
+        <div class="col-12">
+            <h1 class="fw-bold">КАК НАС НАЙТИ?</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <!-- MAP -->
+        </div>
+    </div>
+</div>
+{% endblock content %}
