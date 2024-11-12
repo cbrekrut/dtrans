@@ -1,14 +1,16 @@
 from django.shortcuts import render, get_object_or_404
 from django.http import JsonResponse
 import requests
-from .models import Service, Blog
+from .models import Service, Blog, Gallery
 
 def index(request):
     services = Service.objects.all()
     blogs = Blog.objects.all()
     return render(request, 'index.html',{'services':services, 'blogs':blogs})
 def about(request):
-    return render(request, 'about.html')
+    gallery = Gallery.objects.all()
+    photos = gallery[0].gallery_photos.all()
+    return render(request, 'about.html', {'photos': photos})
 def contacts(request):
     if request.method == "POST":
         name = request.POST.get('name')

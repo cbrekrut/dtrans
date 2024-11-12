@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Blog, BlogImage, Service, ServiceImage
+from .models import Blog, BlogImage, Service, ServiceImage, GalleryPhoto, Gallery
 
 class BlogImageInline(admin.TabularInline):
     model = BlogImage
@@ -21,7 +21,12 @@ class ServiceAdmin(admin.ModelAdmin):
     list_display = ('name', 'price')
     search_fields = ('name',)
 
+class GalleryPhotoInline(admin.TabularInline):
+    model = GalleryPhoto
 
+@admin.register(Gallery)
+class GaleryAdmin(admin.ModelAdmin):
+    inlines = [GalleryPhotoInline]
     
     
 admin.site.register(Blog, BlogAdmin)

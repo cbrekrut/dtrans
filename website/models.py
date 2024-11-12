@@ -44,5 +44,16 @@ class ServiceImage(models.Model):
     def __str__(self):
         return f"Image for {self.service.name}"
     
+class Gallery(models.Model):
+    title = models.CharField(max_length=255)
 
+    def __str__(self):
+        return self.title
 
+class GalleryPhoto(models.Model):
+    gallery = models.ForeignKey(Gallery, on_delete=models.CASCADE, related_name='gallery_photos')
+    image = models.ImageField(upload_to='gallery/')
+    caption = models.CharField(max_length=255, blank=True)
+
+    def __str__(self):
+        return self.caption
