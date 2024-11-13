@@ -36,7 +36,7 @@ img {
         background-image: url(../media/hero.png);
         background-position: 90%;
         background-repeat: no-repeat;
-        background-size: contain;
+        background-size: 700px;
     }
 }
 

@@ -4,37 +4,41 @@
 <div class="container hero-cont pt-5" style="height: auto; width: 100%; max-width: 100%;">
     <div class="row" style="height: 100%; width: 100%;">
         <div class="col-12 col-lg-9 d-flex align-items-center justify-content-center">
-            <h1 class="lh-lg py-4 px-4" style="background-color: #a8a8a8e8;"><span class="display-3 fw-bold mb-2">КАПИТАЛЬНЫЙ РЕМОНТ</span><br> <span class="fw-semibold">И ТЕХНИЧЕСКОЕ ОБСЛУЖИВАНИЕ</span><br><span class="fw-medium">С ГАРАНТИЕЙ</span><br><span class="fw-light">КАЧЕСТВЕННО</span><br><button class="btn btn-lg fs-4 fw-semibold" style="background-color: #001D78; color:white; border-radius: 0px;" data-bs-toggle="modal" data-bs-target="#exampleModal">ЗАПИСАТЬСЯ</button><span class="mt-1 ms-3 fw-semibold">В ТВЕРИ</span></h1>
+            <h1 class="lh-lg py-4 px-4 fs-3" style="background-color: #a8a8a8e8;"><span class="display-5 fw-bold mb-2">КАПИТАЛЬНЫЙ РЕМОНТ</span><br> <span class="fw-semibold">И ТЕХНИЧЕСКОЕ ОБСЛУЖИВАНИЕ</span><br><span class="fw-medium">С ГАРАНТИЕЙ</span><br><span class="fw-light">КАЧЕСТВЕННО</span><br><button class="btn btn-lg fs-4 fw-semibold" style="background-color: #001D78; color:white; border-radius: 0px;" data-bs-toggle="modal" data-bs-target="#exampleModal">ЗАПИСАТЬСЯ</button><span class="mt-1 ms-3 fw-semibold">В ТВЕРИ</span></h1>
         </div>
         <div class="col-12 d-lg-none">
-            <img src="{% static 'media/hero.png' %}" alt="Hero Image">
+            <div class="row justify-content-center">
+                <div class="col-md-9 col-12">
+                    <img src="{% static 'media/hero.png' %}" alt="Hero Image" style="object-fit: contain;">
+                </div>
+            </div>
         </div>
     </div>
 </div>
 <div class="container mt-5">
-    <div class="row">
-        <div class="col-12">
+    <div class="row justify-content-center">
+        <div class="col-12 col-md-9">
             <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-inner">
                   <div class="carousel-item active" data-bs-interval="4000">
                     <div class="imgs d-flex justify-content-between">
-                        <img src="{% static 'media/car1.png' %}" alt="..." class="me-4" style="width: 30%;">
+                        <img src="{% static 'media/car1.png' %}" alt="..." class="me-lg-4 me-2" style="width: 30%;">
                         <img src="{% static 'media/car2.png' %}" alt="..." style="width: 30%;">
-                        <img src="{% static 'media/car3.png' %}" alt="..." class="ms-4" style="width: 30%;">
+                        <img src="{% static 'media/car3.png' %}" alt="..." class="ms-lg-4 ms-2" style="width: 30%;">
                     </div>
                   </div>
                   <div class="carousel-item" data-bs-interval="4000">
                     <div class="imgs d-flex justify-content-between">
-                        <img src="{% static 'media/car1.png' %}" alt="..." class="me-4" style="width: 30%;">
+                        <img src="{% static 'media/car1.png' %}" alt="..." class="me-lg-4 me-2" style="width: 30%;">
                         <img src="{% static 'media/car2.png' %}" alt="..." style="width: 30%;">
-                        <img src="{% static 'media/car3.png' %}" alt="..." class="ms-4" style="width: 30%;">
+                        <img src="{% static 'media/car3.png' %}" alt="..." class="ms-lg-4 ms-2" style="width: 30%;">
                     </div>
                   </div>
                   <div class="carousel-item" data-bs-interval="4000">
                     <div class="imgs d-flex justify-content-between">
-                        <img src="{% static 'media/car1.png' %}" alt="..." class="me-4" style="width: 30%;">
+                        <img src="{% static 'media/car1.png' %}" alt="..." class="me-lg-4 me-2" style="width: 30%;">
                         <img src="{% static 'media/car2.png' %}" alt="..." style="width: 30%;">
-                        <img src="{% static 'media/car3.png' %}" alt="..." class="ms-4" style="width: 30%;">
+                        <img src="{% static 'media/car3.png' %}" alt="..." class="ms-lg-4 ms-2" style="width: 30%;">
                     </div>
                   </div>
                 </div>
@@ -214,35 +218,35 @@
                             <div class="col-12 col-lg-7 py-2" style="background-color: #001D78; box-shadow: 5px 4px 4px 0px #00000040; text-decoration: none; color:white;">
                                 <p class="mb-1" style="font-size: small;">{{ blogs.1.pub_date }}</p>
                                 <p class="fs-6 fw-bold">{{ blogs.1.title }}</p>
-                                <p style="font-size: small;">{{ blogs.1.content }}</p>
+                                <p style="font-size: small;">{{ blogs.1.content|truncatewords:30 }}</p>
                             </div>
                         </div>
                     </a>
                 </div>
                 <div class="col-12 mb-3">
-                    <a href="blog/{{ blogs.1.slug }}" style="text-decoration: none;">
+                    <a href="blog/{{ blogs.2.slug }}" style="text-decoration: none;">
                         <div class="row">
                             <div class="col-12 col-lg-5 p-0">
-                                <img src="{{ blogs.1.images.first.image.url }}" alt="{{ blogs.1.title }}" style="object-fit: cover;">
+                                <img src="{{ blogs.2.images.first.image.url }}" alt="{{ blogs.2.title }}" style="object-fit: cover;">
                             </div>
                             <div class="col-12 col-lg-7 py-2" style="background-color: #001D78; box-shadow: 5px 4px 4px 0px #00000040; text-decoration: none; color:white;">
-                                <p class="mb-1" style="font-size: small;">{{ blogs.1.pub_date }}</p>
-                                <p class="fs-6 fw-bold">{{ blogs.1.title }}</p>
-                                <p style="font-size: small;">{{ blogs.1.content }}</p>
+                                <p class="mb-1" style="font-size: small;">{{ blogs.2.pub_date }}</p>
+                                <p class="fs-6 fw-bold">{{ blogs.2.title }}</p>
+                                <p style="font-size: small;">{{ blogs.2.content|truncatewords:30 }}</p>
                             </div>
                         </div>
                     </a>
                 </div>
                 <div class="col-12">
-                    <a href="blog/{{ blogs.1.slug }}" style="text-decoration: none;">
+                    <a href="blog/{{ blogs.3.slug }}" style="text-decoration: none;">
                         <div class="row">
                             <div class="col-12 col-lg-5 p-0">
-                                <img src="{{ blogs.1.images.first.image.url }}" alt="{{ blogs.1.title }}" style="object-fit: cover;">
+                                <img src="{{ blogs.3.images.first.image.url }}" alt="{{ blogs.3.title }}" style="object-fit: cover;">
                             </div>
                             <div class="col-12 col-lg-7 py-2" style="background-color: #001D78; box-shadow: 5px 4px 4px 0px #00000040; text-decoration: none; color:white;">
-                                <p class="mb-1" style="font-size: small;">{{ blogs.1.pub_date }}</p>
-                                <p class="fs-6 fw-bold">{{ blogs.1.title }}</p>
-                                <p style="font-size: small;">{{ blogs.1.content }}</p>
+                                <p class="mb-1" style="font-size: small;">{{ blogs.3.pub_date }}</p>
+                                <p class="fs-6 fw-bold">{{ blogs.3.title }}</p>
+                                <p style="font-size: small;">{{ blogs.3.content|truncatewords:30 }}</p>
                             </div>
                         </div>
                     </a>
