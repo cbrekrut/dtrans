@@ -17,6 +17,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'website',
+    'tinymce',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -103,3 +104,23 @@ MEDIA_ROOT = 'media/'
 
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+TINYMCE_DEFAULT_CONFIG = {
+    'valid_elements': '*[*]',  # Разрешить все HTML-теги и атрибуты
+    'forced_root_block': 'p',  # Сохраняем текст в <p>
+    'height': 300,
+    'width': '100%',
+    'menubar': True,
+    'plugins': 'textcolor link image media preview codesample table charmap hr pagebreak lists paste',
+    'toolbar': 'undo redo | bold italic underline | fontselect fontsizeselect formatselect | alignleft aligncenter alignright alignjustify | outdent indent | numlist bullist | forecolor backcolor removeformat | pagebreak | charmap emoticons | fullscreen  preview save print | image media template link anchor codesample | ltr rtl',
+    'setup': '''function(editor) {
+        editor.on('NodeChange', function(e) {
+            if (e && e.element.nodeName === 'IMG') {
+                e.element.style.height = '100%';
+                e.element.style.width = '100%';
+                e.element.style.objectFit = 'cover';
+                e.element.style.borderRadius = '16px';
+            }
+        });
+    }'''
+}

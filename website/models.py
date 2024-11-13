@@ -1,12 +1,12 @@
 from django.db import models
 from django.utils.text import slugify
+from tinymce.models import HTMLField
 
 
 class Blog(models.Model):
     title = models.CharField(max_length=200, unique=True)
     slug = models.SlugField(max_length=200, unique=True) 
-    subtitle = models.CharField(max_length=200, unique=False)
-    content = models.TextField()
+    content = HTMLField()
     pub_date = models.DateTimeField('date published')
 
     def save(self, *args, **kwargs):
@@ -26,7 +26,7 @@ class BlogImage(models.Model):
 class Service(models.Model):
     name = models.CharField(max_length=200, unique=True)
     slug = models.SlugField(max_length=200, unique=True)
-    description = models.TextField()
+    description = HTMLField()
     price = models.DecimalField(max_digits=10, decimal_places=2)
     def save(self, *args, **kwargs):
             if not self.slug:

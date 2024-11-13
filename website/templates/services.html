@@ -20,19 +20,15 @@
         {% for service in page_obj %}
         <div class="custom-col-5 mb-4">
             <div class="card shadow-sm" style="height: 100%; border: 0;">
-                <img src="{{ service.images.first.image.url }}" alt="{{ service.name }}" class="card-img-top"> 
-                <div class="card-body pb-1 d-flex flex-column justify-content-center" style="height: fit-content;">
-                    <h5 class="card-title fs-6 fw-bold text-center" style="overflow: hidden;">{{ service.name }}</h5>
-                    <p class="card-text mt-2 text-center" style="font-size: small;">{{ service.description|truncatewords:10 }}</p>
-                    <div class="container">
-                        <div class="row justify-content-between">
-                            <div class="col-5 p-0 d-flex align-items-center justify-content-start">
-                                <p class="my-2" style="font-size: small;">от <span style="color: #001D78;" class="fw-semibold">{{ service.price }}</span>₽</p>
-                            </div>
-                            <div class="col-5 p-0 d-flex align-items-center justify-content-center">
-                                <a href="services/{{ service.slug }}" class="btn btn-primary px-2 py-0 me-2"><span class="fw-bold" style="font-size: small;">Записаться</span></a>
-                            </div>
-                        </div>
+                <img src="{{ service.images.first.image.url }}" alt="{{ service.name }}" class="card-img-top" style="height: 200px;"> 
+                <div class="card-body justify-content-between">
+                    <div class="top">
+                        <h5 class="card-title fw-bold">{{ service.name }}</h5>
+                        {{ service.description|truncatewords:5|safe }}
+                    </div>
+                    <div class="bottom">
+                        <p class="card-price" style='height: fit-content;'>от <span class="fw-semibold">{{ service.price }}</span> Р</p>
+                        <a href="services/{{ service.slug }}" class="btn btn-primary">Записаться</a>
                     </div>
                 </div>
             </div>
@@ -48,7 +44,7 @@
     </div>
     <div class="row">
         <div class="col-12" style="height: 50vh;">
-            <a href="https://yandex.com/maps/org/d_trans_servis/230496914041/?utm_medium=mapframe&utm_source=maps" style="color:#eee;font-size:12px;position:absolute;top:0px;">Д-Транс Сервис</a><a href="https://yandex.com/maps/10819/tver-oblast/category/car_service_auto_repair/184105246/?utm_medium=mapframe&utm_source=maps" style="color:#eee;font-size:12px;position:absolute;top:14px;">Автосервис, автотехцентр в Тверской области</a><a href="https://yandex.com/maps/10819/tver-oblast/category/trucks/184106602/?utm_medium=mapframe&utm_source=maps" style="color:#eee;font-size:12px;position:absolute;top:28px;">Грузовые автомобили, грузовая техника в Тверской области</a><iframe src="https://yandex.com/map-widget/v1/?from=mapframe&ll=35.834758%2C56.815627&mode=search&oid=230496914041&ol=biz&z=16" width="100%" height="100%" frameborder="1" allowfullscreen="true" style="position:relative;"></iframe>
+            <iframe src="https://yandex.com/map-widget/v1/?from=mapframe&ll=35.834758%2C56.815627&mode=search&oid=230496914041&ol=biz&z=16" width="100%" height="100%" frameborder="1" allowfullscreen="true" style="position:relative;"></iframe>
         </div>
     </div>
 </div>
