@@ -15,6 +15,7 @@ def contacts(request):
     if request.method == "POST":
         name = request.POST.get('name')
         telephone = request.POST.get('telephone')
+        #похуй я сделаю вевером
     return render(request, 'contacts.html')
 def blog(request):
     blogs = Blog.objects.all()
