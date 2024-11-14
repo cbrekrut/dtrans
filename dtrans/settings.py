@@ -10,7 +10,7 @@ SECRET_KEY = 'django-insecure-_^v(h2h)(fb0elp020dw2&or^3tp&3fz7sr7)h$3j8)-d+l=@2
 
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 
@@ -99,8 +99,8 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 STATIC_ROOT = 'static/'
-MEDIA_URL = 'media/'
-MEDIA_ROOT = 'media/'
+MEDIA_URL = 'drans/media/'
+MEDIA_ROOT = 'drans/media/'
 
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'

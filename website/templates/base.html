@@ -12,7 +12,32 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="{% static 'css/style.css' %}">
-        <title>Document</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Д-транс Сервис">
+        <meta name="description" content="Д-транс Сервис - профессиональный грузовой автосервис в Твери. Предлагаем качественное обслуживание и ремонт грузовых автомобилей.">
+
+        <!-- Open Graph / Facebook -->
+        <meta property="og:type" content="website">
+        <meta property="og:url" content="https://dtrans-service.ru/"> <!-- Replace with actual URL -->
+        <meta property="og:title" content="Д-транс Сервис - Грузовой автосервис в Твери">
+        <meta property="og:description" content="Качественное обслуживание и ремонт грузовых автомобилей в Твери. Д-транс Сервис - надежный выбор для вашего грузовика.">
+         <!--  <meta property="og:image" content="https://dtrans-service.ru//path/to/image.jpg"> Replace with actual image URL -->
+
+        <!-- Twitter -->
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:url" content="https://dtrans-service.ru/"> <!-- Replace with actual URL -->
+        <meta name="twitter:title" content="Д-транс Сервис - Грузовой автосервис в Твери">
+        <meta name="twitter:description" content="Надежный автосервис для грузовиков в Твери. Ремонт и обслуживание грузовых автомобилей высокого качества.">
+        <!-- <meta name="twitter:image" content="https://dtrans-service.ru//path/to/image.jpg">  Replace with actual image URL -->
+
+        <!-- Keywords -->
+        <meta name="keywords" content="грузовой автосервис Тверь, ремонт грузовых автомобилей Тверь, Д-транс Сервис, грузовой автосервис, автосервис для грузовиков, обслуживание грузовиков, грузовые автомобили ремонт Тверь">
+
+        <!-- Robots -->
+        <meta name="robots" content="index, follow">
+        <meta name="googlebot" content="index, follow">
+        <title>{% block title %}{% endblock title %}</title>
     </head>
 <body>
     <header>
