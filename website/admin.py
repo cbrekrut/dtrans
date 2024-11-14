@@ -18,7 +18,7 @@ class ServiceImageInline(admin.TabularInline):
 class ServiceAdmin(admin.ModelAdmin):
     inlines = [ServiceImageInline]
     prepopulated_fields = {'slug': ('name',)}  # Автоматическая генерация slug
-    list_display = ('name', 'price')
+    list_display = ('name',)
     search_fields = ('name',)
 
 class GalleryPhotoInline(admin.TabularInline):
