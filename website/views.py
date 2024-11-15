@@ -33,3 +33,14 @@ def service_detail(request, slug):
     service = get_object_or_404(Service, slug=slug)
     return render(request, 'service_detail.html',{'service':service, 'services': services})
 
+from django.http import HttpResponse
+
+def robots_txt(request):
+    content = """User-agent: *
+Disallow: /admin/
+Disallow: /media/
+Disallow: /static/
+
+Sitemap: https://dtrans-service.ru//sitemap.xml
+"""
+    return HttpResponse(content, content_type="text/plain")
