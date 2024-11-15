@@ -16,7 +16,10 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="author" content="Д-транс Сервис">
         <meta name="description" content="Д-транс Сервис - профессиональный грузовой автосервис в Твери. Предлагаем качественное обслуживание и ремонт грузовых автомобилей.">
-
+        <link rel="apple-touch-icon" sizes="180x180" href="{% static 'media/favicon/apple-touch-icon.png'%}">
+        <link rel="icon" type="image/png" sizes="32x32" href="{% static 'media/favicon/favicon-32x32.png'%}">
+        <link rel="icon" type="image/png" sizes="16x16" href="{% static 'media/favicon/favicon-16x16.png'%}">
+        <link rel="manifest" href="{% static 'media/favicon/site.webmanifest'%}">
         <!-- Open Graph / Facebook -->
         <meta property="og:type" content="website">
         <meta property="og:url" content="https://dtrans-service.ru/"> <!-- Replace with actual URL -->
@@ -44,15 +47,23 @@
         <nav class="navbar navbar-dark py-1" style="background-color: #001D78;">
             <div class="container-fluid justify-content-around">
               <a class="navbar-brand d-flex flex-column align-items-start" href="/">
-                <span class="text-white fs-4 fw-bold">Д-транс Сервис</span>
-                <span class="text-white fs-5">Грузовой автосервис</span>
+              <div class="row">
+                <div class="col-6 p-0">
+                    <img src="{% static 'media/logo/logo white без фона.svg' %}" alt="Д-транс Сервис" class="logo" style="max-height: 80px;">
+                </div>
+              <div class="col-6 d-flex flex-column align-items-start justify-content-center p-0">
+                    <span class="text-white fs-5 fw-bold">Д-транс Сервис</span>
+                    <span class="text-white fs-6">Грузовой автосервис</span>
+              </div>
+              </div>
+                 
               </a>
               <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
               </button>
               <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
                 <div class="offcanvas-header d-flex justify-content-between">
-                  <h5 class="offcanvas-title text-white" id="offcanvasNavbarLabel">Д-транс</h5>
+                  <h5 class="offcanvas-title text-white" id="offcanvasNavbarLabel">Д-транс Сервис</h5>
                   <button type="button" class="close-btn" data-bs-dismiss="offcanvas" aria-label="Close"><i class="fa-solid fa-xmark fa-xl" style="color:white;"></i></button>
                 </div>
                 <div class="offcanvas-body">
